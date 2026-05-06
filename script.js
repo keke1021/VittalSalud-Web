@@ -1,3 +1,18 @@
+// Urgency bar
+const urgencyBar = document.getElementById('urgencyBar');
+const urgencyClose = document.getElementById('urgencyClose');
+if (urgencyBar && urgencyClose) {
+  if (sessionStorage.getItem('urgencyDismissed')) {
+    urgencyBar.style.display = 'none';
+    document.body.classList.add('urgency-off');
+  }
+  urgencyClose.addEventListener('click', () => {
+    urgencyBar.style.display = 'none';
+    document.body.classList.add('urgency-off');
+    sessionStorage.setItem('urgencyDismissed', '1');
+  });
+}
+
 // Hamburger menu
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
@@ -7,7 +22,6 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
 });
 
-// Close menu when a nav link is clicked
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
@@ -68,9 +82,7 @@ if (formContacto) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre, telefono, edad, email }),
       });
-    } catch (_) {
-      // error al guardar — WhatsApp abre igual para no perder el lead
-    }
+    } catch (_) {}
 
     window.open(WA_URL, '_blank');
     formContacto.reset();
@@ -86,13 +98,11 @@ document.querySelectorAll('.faq-question').forEach(btn => {
     const answer = item.querySelector('.faq-answer');
     const isOpen = item.classList.contains('open');
 
-    // Close all
     document.querySelectorAll('.faq-item').forEach(i => {
       i.classList.remove('open');
       i.querySelector('.faq-answer').style.maxHeight = null;
     });
 
-    // Open clicked if it was closed
     if (!isOpen) {
       item.classList.add('open');
       answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -100,27 +110,126 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-// Animate elements on scroll
-const observer = new IntersectionObserver((entries) => {
+// Animated counters
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const isThousands = el.dataset.format === 'thousands';
+  const duration = 2000;
+  const startTime = performance.now();
+
+  function format(val) {
+    if (isThousands && val >= 1000) {
+      return prefix + val.toLocaleString('es-AR').replace(',', '.') + suffix;
+    }
+    return prefix + val + suffix;
+  }
+
+  function tick(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(ease * target);
+    el.textContent = format(current);
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// Fade-in on scroll
+const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      fadeObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.12 });
 
 document.querySelectorAll(
-  '.card, .testimonio-card, .marca-card, .visual-step, .solucion-list li, .faq-item'
+  '.card, .testimonio-card, .marca-card, .visual-step, .solucion-list li, .faq-item, .pq-card, .equipo-card'
 ).forEach(el => {
   el.classList.add('fade-in');
-  observer.observe(el);
+  fadeObserver.observe(el);
 });
 
-// Inject fade-in CSS once
 const style = document.createElement('style');
 style.textContent = `
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
 `;
 document.head.appendChild(style);
+
+// Exit popup
+const exitPopup = document.getElementById('exitPopup');
+const exitPopupClose = document.getElementById('exitPopupClose');
+const exitPopupCTA = document.getElementById('exitPopupCTA');
+
+if (exitPopup && !sessionStorage.getItem('exitPopupShown')) {
+  document.addEventListener('mouseleave', function onLeave(e) {
+    if (e.clientY <= 0) {
+      exitPopup.classList.add('active');
+      sessionStorage.setItem('exitPopupShown', '1');
+      document.removeEventListener('mouseleave', onLeave);
+    }
+  });
+}
+
+if (exitPopupClose) {
+  exitPopupClose.addEventListener('click', () => exitPopup.classList.remove('active'));
+}
+
+if (exitPopup) {
+  exitPopup.addEventListener('click', (e) => {
+    if (e.target === exitPopup) exitPopup.classList.remove('active');
+  });
+}
+
+if (exitPopupCTA) {
+  exitPopupCTA.addEventListener('click', () => exitPopup.classList.remove('active'));
+}
+
+// Proactive chat bubble
+const chatBubble = document.getElementById('chatBubble');
+const chatClose = document.getElementById('chatClose');
+const chatCTA = document.getElementById('chatCTA');
+
+let waClicked = false;
+document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+  link.addEventListener('click', () => { waClicked = true; });
+});
+
+if (chatBubble && !sessionStorage.getItem('chatDismissed')) {
+  setTimeout(() => {
+    if (!waClicked) {
+      chatBubble.classList.add('active');
+    }
+  }, 15000);
+}
+
+if (chatClose) {
+  chatClose.addEventListener('click', () => {
+    chatBubble.classList.remove('active');
+    sessionStorage.setItem('chatDismissed', '1');
+  });
+}
+
+if (chatCTA) {
+  chatCTA.addEventListener('click', () => {
+    chatBubble.classList.remove('active');
+    sessionStorage.setItem('chatDismissed', '1');
+  });
+}

@@ -12,6 +12,12 @@
 </head>
 <body>
 
+  <!-- BARRA DE URGENCIA -->
+  <div class="urgency-bar" id="urgencyBar">
+    <p>⚡ Respondemos en menos de 2 horas · Sin turno · Sin papelerío · 100% gratuito</p>
+    <button class="urgency-close" id="urgencyClose" aria-label="Cerrar">✕</button>
+  </div>
+
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="container nav-inner">
@@ -32,26 +38,77 @@
   <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="hero-bg"></div>
-    <div class="container hero-content">
-      <span class="badge">Asesoría 100% gratuita · CABA y Gran Buenos Aires</span>
-      <h1>Dejá de pagar de más<br />por tu <em>cobertura médica</em></h1>
-      <p class="hero-sub">
-        Te ayudamos a elegir el mejor plan según tu sueldo, edad y
-        clínicas que realmente vas a usar.
-      </p>
-      <div class="hero-actions">
-        <a href="https://wa.me/541125884458" class="btn-primary" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.836L0 24l6.335-1.51A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.214-3.721.888.93-3.618-.235-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
-          QUIERO MI PLAN
-        </a>
-        <a href="#marcas" class="btn-secondary">Ver coberturas</a>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="badge">Asesoría 100% gratuita · CABA y Gran Buenos Aires</span>
+        <h1>Dejá de pagar de más<br />por tu <em>cobertura médica</em></h1>
+        <p class="hero-sub">
+          Te ayudamos a elegir el mejor plan según tu sueldo, edad y
+          clínicas que realmente vas a usar.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/541125884458" class="btn-primary" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.836L0 24l6.335-1.51A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.214-3.721.888.93-3.618-.235-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+            QUIERO MI PLAN
+          </a>
+          <a href="#marcas" class="btn-secondary">Ver coberturas</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong class="counter" data-target="15000" data-prefix="+" data-format="thousands">+15.000</strong>
+            <span>clientes asesorados</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong class="counter" data-target="7" data-suffix=" años">7 años</strong>
+            <span>en el mercado</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong class="counter" data-target="100" data-suffix="%">100%</strong>
+            <span>asesoría gratuita</span>
+          </div>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><strong>+15.000</strong><span>clientes asesorados</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><strong>7 años</strong><span>en el mercado</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><strong>100%</strong><span>asesoría gratuita</span></div>
+      <div class="hero-photo">
+        <img src="images/adriana.jpg" alt="Adriana Araque — Asesora de coberturas médicas" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN -->
+  <section class="para-quien" id="para-quien">
+    <div class="container">
+      <span class="section-label">Encontrá tu plan</span>
+      <h2>¿Para quién es nuestra asesoría?</h2>
+      <div class="pq-grid">
+        <div class="pq-card">
+          <div class="pq-icon">💼</div>
+          <h3>Tengo recibo de sueldo</h3>
+          <p>Podés tener cobertura médica completa usando tus aportes, sin pagar cuota adicional.</p>
+          <a href="https://wa.me/541125884458?text=Hola!%20Tengo%20recibo%20de%20sueldo%20y%20quiero%20saber%20c%C3%B3mo%20usar%20mis%20aportes%20para%20tener%20cobertura." class="btn-primary" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.836L0 24l6.335-1.51A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.214-3.721.888.93-3.618-.235-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+            Quiero saber más
+          </a>
+        </div>
+        <div class="pq-card">
+          <div class="pq-icon">🧾</div>
+          <h3>Soy autónomo o monotributista</h3>
+          <p>Tenemos planes particulares accesibles que se adaptan a tu ingreso y necesidades.</p>
+          <a href="https://wa.me/541125884458?text=Hola!%20Soy%20aut%C3%B3nomo%2Fmonotributista%20y%20quiero%20informaci%C3%B3n%20sobre%20planes%20de%20salud." class="btn-primary" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.836L0 24l6.335-1.51A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.214-3.721.888.93-3.618-.235-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+            Quiero saber más
+          </a>
+        </div>
+        <div class="pq-card">
+          <div class="pq-icon">👴</div>
+          <h3>Tengo más de 60 años</h3>
+          <p>Trabajamos con coberturas que aceptan ingresos hasta los 85 años con excelente calidad.</p>
+          <a href="https://wa.me/541125884458?text=Hola!%20Tengo%20m%C3%A1s%20de%2060%20a%C3%B1os%20y%20quiero%20informaci%C3%B3n%20sobre%20coberturas%20m%C3%A9dicas." class="btn-primary" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.836L0 24l6.335-1.51A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.214-3.721.888.93-3.618-.235-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+            Quiero saber más
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -187,7 +244,6 @@
           <div class="marca-logo"><img src="images/logos/premedic.logo.png" alt="Premedic" /></div>
           <div class="marca-logo"><img src="images/logos/doctored.logo.png" alt="DoctoRed" /></div>
           <div class="marca-logo"><img src="images/logos/galeno.logo.png" alt="Galeno" /></div>
-          <!-- duplicado para loop infinito -->
           <div class="marca-logo"><img src="images/logos/avalain.logo.png" alt="Avalian" /></div>
           <div class="marca-logo"><img src="images/logos/sancorsalud.logo.png" alt="Sancor Salud" /></div>
           <div class="marca-logo"><img src="images/logos/saludcentral.logo.png" alt="Salud Central" /></div>
@@ -242,6 +298,37 @@
               <span>Córdoba · Empleada en relación de dependencia</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="equipo" id="equipo">
+    <div class="container">
+      <span class="section-label">Nuestro equipo</span>
+      <h2>El equipo detrás de tu cobertura</h2>
+      <div class="equipo-grid">
+        <div class="equipo-card">
+          <div class="equipo-avatar">
+            <img src="images/adriana.jpg" alt="Adriana Araque" />
+          </div>
+          <h3>Adriana Araque</h3>
+          <span>Directora Comercial &amp; Coordinadora</span>
+        </div>
+        <div class="equipo-card">
+          <div class="equipo-avatar">
+            <img src="images/carolina.jpg" alt="Carolina Delgado" />
+          </div>
+          <h3>Carolina Delgado</h3>
+          <span>Asesora Comercial</span>
+        </div>
+        <div class="equipo-card">
+          <div class="equipo-avatar">
+            <img src="images/alicia.jpg" alt="Alicia Garcia" />
+          </div>
+          <h3>Alicia Garcia</h3>
+          <span>Coordinadora de Afiliaciones</span>
         </div>
       </div>
     </div>
@@ -342,6 +429,14 @@
     </div>
   </section>
 
+  <!-- GARANTÍA -->
+  <div class="garantia">
+    <div class="container garantia-inner">
+      <span class="garantia-icon">✅</span>
+      <p>Si analizamos tu situación y no encontramos un plan mejor al tuyo, te lo decimos honestamente. <strong>Sin presión, sin compromiso.</strong></p>
+    </div>
+  </div>
+
   <!-- FORMULARIO -->
   <section class="formulario" id="formulario">
     <div class="container">
@@ -421,6 +516,26 @@
       <p>© 2026 Vittal Salud — Adriana Araque &amp; Equipo. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <!-- POPUP DE SALIDA -->
+  <div class="popup-overlay" id="exitPopup">
+    <div class="popup-card">
+      <h3>¿Te vas sin cotizar?</h3>
+      <p>En 5 minutos te decimos cuánto podés ahorrar en tu cobertura médica. Sin compromiso.</p>
+      <a href="https://wa.me/541125884458?text=Hola!%20Estoy%20interesado%20en%20cotizar%20mi%20prepaga." class="btn-primary" target="_blank" rel="noopener" id="exitPopupCTA">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.836L0 24l6.335-1.51A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.214-3.721.888.93-3.618-.235-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        Quiero cotizar gratis
+      </a>
+      <button class="popup-dismiss" id="exitPopupClose">No gracias</button>
+    </div>
+  </div>
+
+  <!-- CHAT PROACTIVO -->
+  <div class="chat-bubble" id="chatBubble">
+    <button class="chat-close" id="chatClose" aria-label="Cerrar">✕</button>
+    <p>Hola 👋 ¿Querés saber cuánto podés ahorrar en tu cobertura?</p>
+    <a href="https://wa.me/541125884458" class="chat-cta" target="_blank" rel="noopener" id="chatCTA">Escribinos</a>
+  </div>
 
   <!-- BOTÓN FLOTANTE WHATSAPP -->
   <a href="https://wa.me/541125884458" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
