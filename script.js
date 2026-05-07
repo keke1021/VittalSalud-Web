@@ -160,7 +160,7 @@ const fadeObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll(
-  '.card, .testimonio-card, .marca-card, .visual-step, .solucion-list li, .faq-item, .pq-card, .equipo-card'
+  '.card, .testimonio-img, .marca-card, .visual-step, .solucion-list li, .faq-item, .pq-card, .equipo-card'
 ).forEach(el => {
   el.classList.add('fade-in');
   fadeObserver.observe(el);

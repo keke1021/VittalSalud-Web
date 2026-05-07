@@ -471,61 +471,34 @@ section h2 {
 /* === TESTIMONIOS === */
 .testimonios {
   padding: 96px 0;
-  background: var(--white);
+  background: #f8f9fb;
 }
 .testimonios h2 { text-align: center; }
 .testimonios .section-label { display: block; text-align: center; }
 
 .testimonios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-  margin-top: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 40px;
 }
 
-.testimonio-card {
-  background: var(--gray);
-  border-radius: 16px;
-  padding: 32px;
+.testimonio-img {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  transition: transform .2s, box-shadow .2s;
-}
-.testimonio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,39,68,.08); }
-
-.stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
-
-.testimonio-card > p {
-  font-size: .93rem;
-  color: var(--text);
-  line-height: 1.7;
-  font-style: italic;
-}
-
-.testimonio-autor {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: auto;
-}
-
-.autor-avatar {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  background: var(--navy);
-  color: var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: .85rem;
 }
 
-.testimonio-autor strong { display: block; font-size: .9rem; color: var(--navy); }
-.testimonio-autor span { font-size: .8rem; color: var(--muted); }
+.testimonio-img img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(26,39,68,.1);
+  display: block;
+}
+
+@media (max-width: 680px) {
+  .testimonios-grid { grid-template-columns: 1fr; }
+}
 
 /* === FAQ === */
 .faq {
