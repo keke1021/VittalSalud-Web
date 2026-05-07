@@ -471,11 +471,12 @@ section h2 {
 /* === TESTIMONIOS === */
 .testimonios {
   padding: 96px 0;
-  background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f7 100%);
+  background: var(--navy);
 }
 .testimonios .section-label { display: block; text-align: center; }
 .testimonios h2 {
   text-align: center;
+  color: var(--white);
   margin-bottom: 0;
 }
 .testimonios h2::after {
@@ -506,16 +507,13 @@ section h2 {
   width: 100%;
   max-width: 380px;
   border-radius: 16px;
-  border: 2px solid #c9a84c;
-  box-shadow: 0 4px 20px rgba(201,168,76,.15);
   display: block;
   object-fit: contain;
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition: transform .3s ease;
 }
 
 .testimonio-img img:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 40px rgba(201,168,76,.4);
 }
 
 /* Delays escalonados para el fade-in */
