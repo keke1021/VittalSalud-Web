@@ -471,33 +471,62 @@ section h2 {
 /* === TESTIMONIOS === */
 .testimonios {
   padding: 96px 0;
-  background: #f8f9fb;
+  background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f7 100%);
 }
-.testimonios h2 { text-align: center; }
 .testimonios .section-label { display: block; text-align: center; }
+.testimonios h2 {
+  text-align: center;
+  margin-bottom: 0;
+}
+.testimonios h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin: 14px auto 0;
+  border-radius: 2px;
+}
 
 .testimonios-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 40px;
+  margin-top: 44px;
+  justify-items: center;
 }
 
 .testimonio-img {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .testimonio-img img {
   width: 100%;
-  max-width: 500px;
+  max-width: 380px;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(26,39,68,.1);
+  border: 2px solid #c9a84c;
+  box-shadow: 0 4px 20px rgba(201,168,76,.15);
   display: block;
+  object-fit: contain;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
+
+.testimonio-img img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 40px rgba(201,168,76,.4);
+}
+
+/* Delays escalonados para el fade-in */
+.testimonios-grid .testimonio-img:nth-child(1) { transition-delay: 0s; }
+.testimonios-grid .testimonio-img:nth-child(2) { transition-delay: .15s; }
+.testimonios-grid .testimonio-img:nth-child(3) { transition-delay: .3s; }
+.testimonios-grid .testimonio-img:nth-child(4) { transition-delay: .45s; }
 
 @media (max-width: 680px) {
   .testimonios-grid { grid-template-columns: 1fr; }
+  .testimonio-img img { max-width: 100%; }
 }
 
 /* === FAQ === */
