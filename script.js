@@ -51,13 +51,11 @@ if (formContacto) {
     input.parentNode.appendChild(span);
   }
 
-  function validate(nombre, telefono, edad, email) {
+  function validate(nombre, telefono, edad) {
     let ok = true;
     if (!nombre)   { showError('nombre',   'Ingresá tu nombre y apellido.'); ok = false; }
-    if (!telefono) { showError('telefono', 'Ingresá tu número de teléfono.'); ok = false; }
+    if (!telefono) { showError('telefono', 'Ingresá tu número de WhatsApp.'); ok = false; }
     if (!edad)     { showError('edad',     'Ingresá tu edad.'); ok = false; }
-    if (!email)         { showError('email', 'Ingresá tu email.'); ok = false; }
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email', 'El email no es válido.'); ok = false; }
     return ok;
   }
 
@@ -68,9 +66,8 @@ if (formContacto) {
     const nombre   = document.getElementById('nombre').value.trim();
     const telefono = document.getElementById('telefono').value.trim();
     const edad     = document.getElementById('edad').value.trim();
-    const email    = document.getElementById('email').value.trim();
 
-    if (!validate(nombre, telefono, edad, email)) return;
+    if (!validate(nombre, telefono, edad)) return;
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Enviando...';
@@ -80,7 +77,7 @@ if (formContacto) {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre, telefono, edad, email }),
+        body: JSON.stringify({ nombre, telefono, edad }),
       });
     } catch (_) {}
 
